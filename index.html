@@ -1,20 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Music Guru</title>
 </head>
+
 <body>
     <header>
-        <h1>Music Guru</h1>
+        <!--Header -->
+        <h1 class="page-title">Music Guru</h1>
+        <p>Find your musicians</p>
+        <form id="task-form">
+            <div class="form-group">
+                <input type="text" name="search-musician" placeholder="Enter Name here" />
+            </div>
+            <!--this will be search bar and dropdown menu will show different searches we want to link/display-->
+            <div class="form-group">
+                <select name="task-type" class="select-dropdown">
+                    <option value="" disabled selected>Select info</option>
+                    <option value="Genre">Genre</option>
+                    <option value="Record Label">Record Label</option>
+                    <option value="Social Medias">Social Media</option>
+                    <option value="Band Members">Band Members</option>
+                    <option value="Lyrics">Lyrics</option>
+                    <option value="Searches">Searches</option>
+                </select>
+            </div>
+            <!-- This is rough of the different searches meaning what info is displayed-->
+            <div class="form-group">
+                <button class="btn" id="save-task" type="submit">Artist Name</button>
+            </div>
+        </form>
     </header>
+    <main class="page-content" id="page-content">
+        <!--Genres or whatever catagory-->
+        <section class="task-list-wrapper">
+            <h2 class="list-title">Genre</h2>
+            <ul class="task-list" id="genres-found"></ul>
+        </section>
+        <!--Label section or networth-->
+        <section class="task-list-wrapper">
+            <h2 class="list-title">Record Label</h2>
+            <ul class="task-list" id="labels-found"></ul>
+        </section>
+        <!--Socials here-->
+        <section class="task-list-wrapper">
+            <h2 class="list-title">Social Media</h2>
+            <ul class="task-list" id="socials-found"></ul>
+        </section>
+        <!--edit to match rest of list-->
+        <section class="task-list-wrapper">
+            <h2 class="list-title">Genre</h2>
+            <ul class="task-list" id="genres-found"></ul>
+        </section>
+    </main>
+    
+
+    <footer>
+        &copy;Music Guru Team 2022
+        </div>
+    </footer>
 
     <!-- JS for all dynamic HTML and design code -->
-    <script src="./assets/js/design.js"></script>
+    <script src="./design.js"></script>
     <!-- JS for all heavy code and API fetching -->
     <script src="./assets/js/tech.js"></script>
 </body>
+
 </html>
