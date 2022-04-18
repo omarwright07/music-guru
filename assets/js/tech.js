@@ -57,21 +57,40 @@ var getSongLyrics = function() {
     });
 };
 
-// ####### NEED CORRECT MBID FOR THIS TO WORK #######
-// get label 
-// lastFM is returning the wrong MBID
+getArtistInfo();
+getSongLyrics();
 
-// var getLabel = function(mbid) {
-// musicBrainzApi = "http://musicbrainz.org/ws/2/label/" + "46f0f4cd-8aab-4b33-b698-f459faf64190" + "?inc=aliases&fmt=json";
-// fetch(musicBrainzApi).then(function(response) {
+var artist = "cher";
+// var getLabel = function() {
+var getArtist = "https://musicbrainz.org/ws/2/artist/?query=" + artist + "&fmt=json";
+// var getLabel = "https://musicbrainz.org/ws/2/label/" + data.artists[0].id + "?inc=aliases";
+var mb = function (info){
+    fetch(info).then(function(response) {
+        response.json().then(function(data) {
+            console.log("MB function",data.artists[0].id);
+            console.log(data);
+            localStorage.setItem("mbid", data.artists[0].id);
+        });
+    });
+};
+
+mb(getArtist);
+
+// var mbid = localStorage.getItem("mbid");
+// var getUrl = "https://musicbrainz.org/ws/2/url/" + mbid + "?fmt=json"
+// var getGenre = "https://musicbrainz.org/ws/2/genre/" + mbid + "?fmt=json";
+
+//does not work
+// var mb2 = function (){
+// console.log("mb2",typeof(mbid)),mbid;
+//     fetch(getGenre).then(function(response) {
 //     response.json().then(function(data) {
 //         console.log(data);
 //     });
-// });
+//     });
 // };
 
-getArtistInfo();
-getSongLyrics();  
+// mb2();
 
 // ###########################################################
 // ###########################################################
