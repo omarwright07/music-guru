@@ -20,24 +20,24 @@
 }
 
 .footer {
-  background-color: lightgrey;
-  color: darkolivegreen;
+  background-color: var(--quaternary-color);
+  color: var(--primary-color);
   margin-top: auto;
 
 
 }
 
 :root {
-  --primary: #206a6b;
+  /* --primary: #206a6b;
   --secondary: #a4ece0;
   --tertiary: #f0f7a9;
-  --grey: #abcb67;
+  --grey: #abcb67; */
   font-size: 62.5%;
 }
 
 body {
-  background: #ededed;
-  color: var(--grey);
+  background: var(--tertiary-color);
+  color: var(--primary-color);
   margin: 0;
   padding: 0;
   display: flex;
@@ -47,13 +47,13 @@ body {
 }
 
 header {
-  background: var(--secondary);
+  background: var(--primary-color);
   padding: 30px 25px;
-  border-bottom: 5px solid var(--primary);
+  border-bottom: 5px solid var(--secondary-color);
 }
 
 header p {
-  color: var(--tertiary);
+  color: var(--tertiary-color);
   margin: 5px 0 20px;
   font-size: 2rem;
 }
@@ -75,7 +75,7 @@ form input {
   padding: 12px;
   width: 100%;
   font-size: 2.2rem;
-  border: 2px solid var(--grey);
+  border: 2px solid var(--primary-color);
   border-radius: 12px;
 }
 
@@ -86,15 +86,15 @@ form .form-group {
 
 footer {
   width: 100%;
-  background: var(--secondary);
-  color: var(--tertiary);
+  background: var(--primary-color);
+  color: var(--quinary-color);
   font-size: 2.4rem;
   padding: 20px;
-  border-top: 5px solid var(--primary);
+  border-top: 5px solid var(--secondary-color);
 }
 
 .page-title {
-  color: var(--primary);
+  color: var(--quinary-color);
   margin-bottom: 5px;
   margin-top: 0;
   font-size: 4.5rem;
@@ -115,7 +115,7 @@ footer {
 }
 
 .list-title {
-  color: var(--secondary);
+  color: var(--secondary-color);
   font-size: 2.6rem;
 }
 
@@ -123,18 +123,23 @@ footer {
   list-style: none;
   padding: 15px;
   height: calc(100% - 50px);
-  background: rgb(196, 196, 196);
+  background: var(--senary-color);
+  color: var(--quaternary-color);
   border-radius: 12px;
-  border: 2px solid var(--grey);
+  border: 3px solid var(--quaternary-color);
+  border-right: 30px solid var(--quaternary-color);
+  border-bottom: 30px solid var(--primary-color);
+  
 }
 
 .task-item {
-  color: var(--grey);
+  color: var(--tertiary-color);
   padding: 15px 15px;
-  border: 2px solid var(--grey);
-  background: var(--tertiary);
+  border: 2px solid var(--quinary-color);
+  background: var(--primary-color);
   border-radius: 12px;
   margin-bottom: 20px;
+  
 }
 
 .task-name {
@@ -143,7 +148,7 @@ footer {
 }
 
 .task-type {
-  color: var(--secondary);
+  color: var(--secondary-color);
   font-size: 1.55rem;
 }
 
@@ -165,21 +170,22 @@ footer {
   border: none;
   display: inline-block;
   padding: 10px 15px;
-  background: var(--primary);
+  background: var(--quinary-color);
+  color: var(--primary-color);
   font-size: 2.2rem;
   border-radius: 12px;
   position: relative;
   top: -3px;
-  box-shadow: 0 3px var(--grey);
+  box-shadow: 0 3px var(--secondary-color);
 }
 
 .btn:hover {
-  box-shadow: 0 2px var(--grey);
+  box-shadow: 0 2px var(--primary-color);
   top: -2px;
 }
 
 .btn:active {
-  box-shadow: 0 0px var(--grey);
+  box-shadow: 0 0px var(--primary-color);
   top: 0;
 }
 
@@ -188,7 +194,7 @@ footer {
   font-size: 1.4rem;
   padding: 5px 7px;
   margin: 3px;
-  background: var(--secondary);
+  background: var(--secondary-color);
   color: #fff;
 }
 
@@ -201,7 +207,7 @@ footer {
   width: 100%;
   max-width: 100%;
   margin: 0;
-  border: 2px solid var(--grey);
+  border: 2px solid var(--primary-color);
   border-radius: 12px;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -232,7 +238,7 @@ footer {
 .select-dropdown:focus,
 .select-status:focus {
   border-color: #aaa;
-  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 1px 3px var(--quinary-color);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
   color: #222;
   outline: none;
