@@ -41,3 +41,9 @@ var createArtistFormEl = function () {
 // ###########################################################
 
 // All fuctions to be ran will be in the tech.js
+var artistName = JSON.parse(localStorage.getItem("artistName"));
+var genre = JSON.parse(localStorage.getItem("genre"));
+var image = JSON.parse(localStorage.getItem("image"));
+var url = JSON.parse(localStorage.getItem("url"));
+var songLyrics = JSON.parse(localStorage.getItem("songLyrics"));
+console.log(artistName,url,genre,image,songLyrics);
