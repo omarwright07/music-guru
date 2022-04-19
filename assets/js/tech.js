@@ -26,31 +26,30 @@ function getArtistInfo() {
                 console.log(data.artist.tags.tag[i].name);
                 genreArray[i] = data.artist.tags.tag[i].name;
             }
-            localStorage.setItem("genre", JSON.stringify(genreArray));
-        });  
+        });
     });
-};  
+};
 
 // Lyrics
 // https://lyricsovh.docs.apiary.io/
 // The only issue I've found with this is that it can be slow
 
-// Need the user to input song
-var lyricBase = "https://api.lyrics.ovh/v1/";
-// var artist = "coldplay";  //get from form input
-var song = "yellow";  //get from form input
-var lyricRequest = lyricBase + artist + "/" + song;
+var getSongLyrics = function () {
+    var lyricBase = "https://api.lyrics.ovh/v1/";
+    var artist = "coldplay";  //get from form input
+    var song = "yellow";  //get from form input
+    var lyricRequest = lyricBase + artist + "/" + song;
 
-function getSongLyrics() {
-    fetch(lyricRequest).then(function(response) {
-        response.json().then(function(data) {
-            console.log(data); 
-            if (response.status != 200){
-                var songLyrics = "Song not Found";
+    fetch(lyricRequest).then(function (response) {
+        response.json().then(function (data) {
+            console.log(data);
+            console.log(response.status);
+            if (response.status != 200) {
+                document.getElementById("lyrics").innerHTML = ("Song not found");
             }
             else {
                 var songLyrics = data.lyrics.split('\n').join('<br />');
-                localStorage.setItem("songLyrics", JSON.stringify(songLyrics));
+                // document.getElementById("lyrics").innerHTML = songLyrics;
             }
         })
     });
@@ -59,41 +58,86 @@ function getSongLyrics() {
 getArtistInfo(lastFMapiCall);
 getSongLyrics();
 
+var artist = "cher";
+// var getLabel = function() {
+var getArtist = "https://musicbrainz.org/ws/2/artist/?query=" + artist + "&fmt=json";
+// var getLabel = "https://musicbrainz.org/ws/2/label/" + data.artists[0].id + "?inc=aliases";
+var mb = function (info) {
+    fetch(info).then(function (response) {
+        response.json().then(function (data) {
+            console.log("MB function", data.artists[0].id);
+            console.log(data);
+            localStorage.setItem("mbid", data.artists[0].id);
+        });
+    });
+};
+
+mb(getArtist);
+
+// var mbid = localStorage.getItem("mbid");
+// var getUrl = "https://musicbrainz.org/ws/2/url/" + mbid + "?fmt=json"
+// var getGenre = "https://musicbrainz.org/ws/2/genre/" + mbid + "?fmt=json";
+
+//does not work
+// var mb2 = function (){
+// console.log("mb2",typeof(mbid)),mbid;
+//     fetch(getGenre).then(function(response) {
+//     response.json().then(function(data) {
+//         console.log(data);
+//     });
+//     });
+// };
+
+// mb2();
+
 // ###########################################################
 // ###########################################################
 
 // Save and Load Functions ____________________________________
-var savePlaceholder = function () {
+var searchHistory = [];
+
+var searchHistoryHandler = function (artistName) {
+    if (!searchHistory.includes(artistName)) {
+        createSearchHistoryBTN(artistName);
+    }
+    saveSearchHistory;
+}
+
+var saveSearchHistory = function () {
     console.log("Saving...")
-    localStorage.setItem("placeholder", JSON.stringify(placeholder));
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 };
 
-var loadPlaceholder = function () {
+var loadSearchHistory = function () {
     console.log("Loading...")
-    var savedPlaceholder = JSON.parse(localStorage.getItem("searchHistory"));
+    var savedSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
     // if nothing in localStorage, create a new object to track all description
-    if (!savedPlaceholder) {
+    if (!savedSearchHistory) {
         console.log("There was no local save! Setting default values!");
     } else {
         console.log("Loaded from local save!")
-        placeholder = JSON.parse(localStorage.getItem("y"));
+        searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+        // Creates all the search history buttons here
+        for (i = 0; i < searchHistory.length; i++) {
+            createSearchHistoryBTN(searchHistory[i]);
+        }
     }
 };
 
 // Generate Function ____________________________________
 var generatePlaceholder = function () {
-    console.log("Generating Forecast...")
+    console.log("Generating Placeholder...")
     fetchPlaceholder();
 };
 
-var fetchPlaceholder = function() {
+var fetchPlaceholder = function () {
     fetch(apiURL)
         .then(function (response) {
             // request was successful
             if (response.ok) {
-            
+
             } else {
-            
+
             }
         })
         .catch(function (error) {
@@ -112,4 +156,4 @@ var clearPlaceholder = function () {
 
 // $("placeholder").on("click", generatePlaceholder);
 // $("placeholder").on("click", "placeholder", generatePlaceholder);
-// loadPlaceholder();
+loadSearchHistory();
