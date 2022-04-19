@@ -6,6 +6,18 @@ console.log("design.js ran");
 // ###########################################################
 // ###########################################################
 
+// Creates search history buttons
+var createSearchHistoryBTN = function (artistName) {
+  console.log("Creating Search Button for " + artistName);
+  var searchHistoryBTN = $("<button>")
+      // Add whatever classes needed to stylize here
+      .addClass("placeholder")
+      .text(artistName);
+      // Adds search history button to search history container 
+  $("#search-history").append(searchHistoryBTN);
+}
+
+
 // Form Handler Function | controls what needs to be created ____________________________________
 var formHandler = function (event) {
   
