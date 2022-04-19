@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,21 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Music Guru</title>
 </head>
 
-<body>
-    <header>
+<body class="bg-lime-300"> 
+    
+    <header class='text-center'>
         <!--Header -->
-        <h1 class="page-title">Music Guru</h1>
-        <p>Find your musicians</p>
-        <form id="task-form">
-            <div class="form-group">
-                <input type="text" name="search-musician" placeholder="Enter Name here" />
-            </div>
+        <div class="bg-lime-300 box-border h-32">
+            <h1 class="text-4xl font-bold font-sans">Music Guru</h1>       
+        </div>
             <!--this will be search bar and dropdown menu will show different searches we want to link/display-->
             <div class="form-group">
                 <select name="task-type" class="select-dropdown">
@@ -40,27 +38,52 @@
             </div>
         </form>
     </header>
-    <main class="page-content" id="page-content">
-        <!--Genres or whatever catagory-->
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Genre</h2>
-            <ul class="task-list" id="genres-found"></ul>
-        </section>
-        <!--Label section or networth-->
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Record Label</h2>
-            <ul class="task-list" id="labels-found"></ul>
-        </section>
-        <!--Socials here-->
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Social Media</h2>
-            <ul class="task-list" id="socials-found"></ul>
-        </section>
-        <!--edit to match rest of list-->
-        <section class="task-list-wrapper">
-            <h2 class="list-title">Genre</h2>
-            <ul class="task-list" id="genres-found"></ul>
-        </section>
+    <main>
+        <div>
+        <!-- Artist Names and Genres 3 Boxes on mockup -->
+            <div class="grid-cols-3 flex">
+                <div class="box-border h-96 w-72 bg-red-800"> 
+                    <h2 class="genre-title">Genre</h2>
+                    <ul class="genre-list" id="genres-found"></ul>
+                </div>
+                <div class="box-border h-96 w-72 bg-blue-800">
+                    <h2 class="genre-title">Genre</h2>
+                    <ul class="genre-list" id="genres-found"></ul>
+                </div>
+                <div class="box-border h-96 w-72 bg-green-100 ">
+                    <h2 class="genre-title">Genre</h2>
+                    <ul class="genre-list" id="genres-found"></ul>
+                </div>
+            </div>
+            
+            <div>
+                <!--Genres or whatever catagories undernear 3 artist boxes-->
+                <section class="task-list-wrapper">
+                    <h2 class="list-title">Genre</h2>
+                    <ul class="task-list" id="genres-found"></ul>
+                </section>
+                <!--Label section or networth-->
+                <section class="task-list-wrapper">
+                    <h2 class="list-title">Record Label</h2>
+                    <ul class="task-list" id="labels-found"></ul>
+                </section>
+                <!--Socials here-->
+                <section class="task-list-wrapper">
+                     <h2 class="list-title">Social Media</h2>
+                    <ul class="task-list" id="socials-found"></ul>
+                </section>
+                <!--edit to match rest of list-->
+                <section class="task-list-wrapper">
+                    <h2 class="list-title">Genre</h2>
+                    <ul class="task-list" id="genres-found"></ul>
+                </section>
+                        <p>Find your musicians</p>
+                        <form id="task-form">
+                    <div class="form-group">
+                        <input type="text" name="search-musician" placeholder="Enter Name here" />
+                    </div>
+            </div>
+        </div>
     </main>
     
 
@@ -70,7 +93,7 @@
     </footer>
 
     <!-- JS for all dynamic HTML and design code -->
-    <script src="./design.js"></script>
+    <script src="./assets/js/design.js"></script>
     <!-- JS for all heavy code and API fetching -->
     <script src="./assets/js/tech.js"></script>
 </body>
