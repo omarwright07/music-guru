@@ -140,6 +140,7 @@ footer {
   background: rgb(196, 196, 196);
   border-radius: 12px;
   border: 2px solid var(--grey);
+  color: black;
 }
 
 .task-item {
