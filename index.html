@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,10 +13,14 @@
 </head>
 
 <body class="bg-lime-300"> 
-    
+    html {
+        height: 100%;
+        margin: auto;
+        width: 960px;
+      }
     <header class='text-center'>
         <!--Header -->
-        <div class="bg-lime-300 box-border h-32">
+        <div class="bg-orange-300 box-border h-32">
             <h1 class="text-4xl font-bold font-sans">Music Guru</h1>       
         </div>
             <!--this will be search bar and dropdown menu will show different searches we want to link/display-->
@@ -39,56 +42,68 @@
         </form>
     </header>
     <main>
-        <div>
-        <!-- Artist Names and Genres 3 Boxes on mockup -->
-            <div class="grid-cols-3 flex">
-                <div class="box-border h-96 w-72 bg-red-800"> 
-                    <h2 class="genre-title">Genre</h2>
-                    <ul class="genre-list" id="genres-found"></ul>
-                </div>
-                <div class="box-border h-96 w-72 bg-blue-800">
-                    <h2 class="genre-title">Genre</h2>
-                    <ul class="genre-list" id="genres-found"></ul>
-                </div>
-                <div class="box-border h-96 w-72 bg-green-100 ">
-                    <h2 class="genre-title">Genre</h2>
-                    <ul class="genre-list" id="genres-found"></ul>
+            <div>
+            <!-- Artist Names and Genres 3 Boxes on mockup -->
+                <div class="h-96 box-border text-center font-bold text-3xl mb-20 grid grid-cols-3 flex space-x-2.5">
+                    <div class="rounded-lg grow bg-red-300"> 
+                        <h2 class="genre-title">Genre</h2>
+                        <ul class="genre-list" id="genres-found"></ul>
+                    </div>
+                    <div class="rounded-lg grow bg-red-300">
+                        <h2 class="genre-title">Genre</h2>
+                        <ul class="genre-list" id="genres-found"></ul>
+                    </div>
+                    <div class="rounded-lg grow bg-red-300 ">
+                        <h2 class="genre-title">Genre</h2>
+                        <ul class="genre-list" id="genres-found"></ul>
+                    </div>
                 </div>
             </div>
             
-            <div>
+            <div class="text-center font-bold text-3xl grid gap-4 grid-cols-6 h-72 flex">
                 <!--Genres or whatever catagories undernear 3 artist boxes-->
-                <section class="task-list-wrapper">
+                <div class="h-44 rounded-lg bg-red-200 col-span-7 ">
                     <h2 class="list-title">Genre</h2>
                     <ul class="task-list" id="genres-found"></ul>
-                </section>
-                <!--Label section or networth-->
-                <section class="task-list-wrapper">
-                    <h2 class="list-title">Record Label</h2>
-                    <ul class="task-list" id="labels-found"></ul>
-                </section>
-                <!--Socials here-->
-                <section class="task-list-wrapper">
-                     <h2 class="list-title">Social Media</h2>
-                    <ul class="task-list" id="socials-found"></ul>
-                </section>
-                <!--edit to match rest of list-->
-                <section class="task-list-wrapper">
-                    <h2 class="list-title">Genre</h2>
-                    <ul class="task-list" id="genres-found"></ul>
-                </section>
-                        <p>Find your musicians</p>
-                        <form id="task-form">
-                    <div class="form-group">
-                        <input type="text" name="search-musician" placeholder="Enter Name here" />
+                </div>
+               
+                        <!-- Middle Columns Section -->
+               
+                        <!--Label div or networth-->
+                    <div class="h-44 rounded-lg bg-red-300 col-span-3">
+                        <h2 class="list-title">Record Label</h2>
+                        <ul class="task-list" id="labels-found"></ul>
                     </div>
-            </div>
+                        <!--Socials here-->
+                    <div class="h-44 rounded-lg bg-red-400 col-span-3">
+                        <h2 class="list-title">Social Media</h2>
+                        <ul class="task-list" id="socials-found"></ul>
+                    </div>
+                        <!--edit to match rest of list-->
+                    <div class="h-44 rounded-lg bg-red-500 col-span-3">
+                        <h2 class="list-title">Genre</h2>
+                        <ul class="task-list" id="genres-found"></ul>
+                    </div>
+                    <div class="h-44 rounded-lg bg-red-500 col-span-3">
+                        <h2 class="list-title">Genre</h2>
+                        <ul class="task-list" id="genres-found"></ul>
+                    </div>
+                
+                    <div class="h-44 rounded-lg bg-red-500 col-span-7">
+                        <h2 class="list-title">Genre</h2>
+                        <ul class="task-list" id="genres-found"></ul>
+                    </div>
+            </div>      
         </div>
     </main>
     
 
-    <footer>
+    <footer class="bg-orange-300 h-32 font-lg text-center">
         &copy;Music Guru Team 2022
+        <p>Find your musicians</p>
+        <form id="task-form">
+        <div class=>
+        <input type="text" name="search-musician" placeholder="Enter Name here" />
         </div>
     </footer>
 
