@@ -59,10 +59,8 @@ header {
 footer {
   position: sticky;
   bottom: 0px;
-  width: 100%;
   background: var(--quaternary-color);
   color: var(--tertiary);
-  border-top: 5px solid var(--primary);
 }
 
 .container-genre {

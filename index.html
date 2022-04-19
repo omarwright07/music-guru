@@ -16,7 +16,7 @@
 
 <body class="w-screen text-center">
     <!--Header -->
-    <header class=' bg-orange-300 box-border'>
+    <header class='bg-orange-300 box-border'>
         <h1 class="text-4xl  font-sans">
             Music Guru
         </h1>
@@ -28,17 +28,17 @@
     <!-- Section that holds all the Artist Info -->
     <section>
         <!-- Artist Name Section -->
-        <div class=" text-3xl my-10">
-            <h1 class="artist-name">
+        <div class="text-3xl my-10" id="container-artist-name">
+            <h1 class="artist-name" id="container-artist-name-fetched">
                 Artist Name
             </h1>
         </div>
 
         <!-- Genre Section -->
-        <div class="my-2">
+        <div class="my-2" id="container-genre">
             <div class="rounded-lg grow">
                 <h2 class="title-section">Genre</h2>
-                <ul class="container-genre break-all" id="genres-found"></ul>
+                <ul class="container-genre break-all" id="container-genre-fetched"></ul>
             </div>
         </div>
 
@@ -51,28 +51,28 @@
         </div>
 
         <!-- Link Section -->
-        <div class="my-2">
-            <button class="btn title-section" id="artist-link" type="submit">Artist's Main Site Link</button>
+        <div class="my-2" id="container-link">
+            <button class="btn title-section" id="container-link-fetched" type="submit">Artist's Main Site Link</button>
         </div>
 
         <!-- Lyrics Search Section -->
-        <div class="my-2">
-            <form class="">
+        <div class="my-2" id="container-lyrics">
+            <form>
                 <h2 class="title-section">
                     Find Their Song Lyrics
                 </h2>
                 <div class="">
-                    <input type="text" name="search-musician" placeholder="Enter Song Name Here" />
-                    <button class="btn" id="save-task" type="submit">Search</button>
+                    <input type="text" name="search-lyrics" placeholder="Enter Song Name Here" />
+                    <button class="btn" id="btn-search-lyrics" type="submit">Search</button>
                 </div>
             </form>
 
             <!-- Display for the song lyrics -->
             <div class="my-2">
-                <h2 class="title-song" id="song-title">
+                <h2 class="title-song" id="container-lyrics-song-title-fetched">
                     Song Name
                 </h2>
-                <p class="text-justify mx-20" id="container-lyrics">
+                <p class="text-justify mx-20" id="container-lyrics-fetched">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -87,15 +87,15 @@
     </section>
 
     <!-- Footer Section | For search and copy right -->
-    <footer class="">
+    <footer class="footer">
         <h2 class="title-section">Find your musicians</h2>
-        <form id="">
+        <form>
             <div class=>
-                <input type="text" name="search-musician" placeholder="Enter Artist Name Here" />
-                <button class="btn" id="search-musician" type="submit">Search</button>
+                <input type="text" name="search-artist" placeholder="Enter Artist Name Here" />
+                <button class="btn" id="btn-search-artist" type="submit">Search</button>
             </div>
-            <button class="btn" id="back-to-top" type="submit">Back To Top</button>
-            <button class="btn" id="show-search-history" type="submit">Show Search History</button>
+            <button class="btn" id="btn-back-to-top" type="submit">Back To Top</button>
+            <button class="btn" id="btn-show-search-history" type="submit">Show Search History</button>
             <!-- Container for search history buttons -->
             <ul class="container-search-history" id="search-musician-history">
             </ul>
