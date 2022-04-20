@@ -81,7 +81,7 @@ var formHandler = function (event) {
 };
 
 // All Forms Creation Functions | controls HTML generate process ____________________________________
-var createArtistFormEl = function () {
+var createArtistFormEl = function (genre) {
   // Below is just piece to create all the html elements
   var genreText = document.createElement("p");
     console.log("Genre at least tried to post...");  
