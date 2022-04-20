@@ -2,10 +2,16 @@
 /* modified for mobile device */
 /* :root has this color palette can mod */
 /* palette one color missing: #206a6b #a4ece0 #f0f7a9 #abcb67 #6cb26c */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
+  /* Button Color */
   --primary-color:#7b2524;
   --secondary-color: #e76043;
   --tertiary-color: #ec9a72;
+  /* General Color */
   --quaternary-color: #ebd397;
   --quinary-color: #cbd76b;
   --senary-color: #6a552a;;
@@ -17,10 +23,11 @@
 * {
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+  color: var(--senary-color);
 }
 
 html {
-  background-color: var(--quinary-color);
+  background-color: var(--quaternary-color);
 }
 
 body {
@@ -29,12 +36,10 @@ body {
 
 header {
   background: var(--quinary-color);
-  padding: 30px 25px;
-  border-bottom: 5px solid var(--primary);
+  color: var(--senary-color);
 }
 
 .artist-name{
-  position: sticky;
   top: 0px;
   font-size: var(--font-size-lg);
 }
@@ -56,47 +61,49 @@ header {
   background-color: var(--senary-color);
 }
 
-footer {
-  position: sticky;
-  bottom: 0px;
-  background: var(--quaternary-color);
-  color: var(--tertiary);
-}
-
-.container-genre {
+/* .container-genre {
 }
 
 .container-search-history {
+} */
 
+.form {
+  padding: 10px;
+  background: var(--quinary-color);
 }
 
-.genre-list {
-  list-style: none;
-  padding: 15px;
-  width: 100px;
-  height: calc(100% - 50px);
-  background: rgb(196, 196, 196);
-  border-radius: 12px;
-  border: 2px solid var(--grey);
-  box-sizing: border-box; 
-  float:left;
+/* Footer Styling */
+footer {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  background: var(--quinary-color);
+  color: var(--senary-color);
 }
 
-.list-title {
-  color: var(--secondary);
-  font-size: 2.6rem;
+input {
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Button Styling */
+button{
+  background: var(--primary-color);
 }
 
 .btn {
   outline: none;
   border: none;
+  margin: 3px;
   padding: 10px 15px;
   background: var(--primary-color);
+  color: var(--tertiary-color);
   border-radius: 12px;
   box-shadow: 0 3px var(--tertiary-color);
 }
 
 .btn:hover {
   box-shadow: 0 2px var(--secondary-color);
+  background: var(--secondary-color);
   top: -2px;
 }

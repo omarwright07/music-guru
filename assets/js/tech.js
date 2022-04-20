@@ -14,15 +14,15 @@ var lastFMapiCall = lastFMapiBase + "?method=artist.getinfo&artist=" + artist + 
 // get genre and url and image
 // need to pass artist name, currently hardcoded
 function getArtistInfo() {
-    fetch(lastFMapiCall).then(function(response) {
-        response.json().then(function(data) {
+    fetch(lastFMapiCall).then(function (response) {
+        response.json().then(function (data) {
             console.log(data);
             localStorage.setItem("artistName", JSON.stringify(data.artist.name));
             localStorage.setItem("url", JSON.stringify(data.artist.url));
             // 6 images are available rangin from small (0) to mega (5) I've selected medium (1)
             localStorage.setItem("image", JSON.stringify(data.artist.image[1]["#text"]));
             var genreArray = [];
-            for (var i = 0; i < data.artist.tags.tag.length; i++){
+            for (var i = 0; i < data.artist.tags.tag.length; i++) {
                 console.log(data.artist.tags.tag[i].name);
                 genreArray[i] = data.artist.tags.tag[i].name;
             }
@@ -94,7 +94,7 @@ mb(getArtist);
 // ###########################################################
 
 // Save and Load Functions ____________________________________
-var searchHistory = [];
+var searchHistory = ["50 Cent", "Coldplay", "Nickelback", "Maroon 5"];
 
 var searchHistoryHandler = function (artistName) {
     if (!searchHistory.includes(artistName)) {
@@ -114,6 +114,9 @@ var loadSearchHistory = function () {
     // if nothing in localStorage, create a new object to track all description
     if (!savedSearchHistory) {
         console.log("There was no local save! Setting default values!");
+        for (i = 0; i < searchHistory.length; i++) {
+            createSearchHistoryBTN(searchHistory[i]);
+        }
     } else {
         console.log("Loaded from local save!")
         searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
@@ -145,15 +148,49 @@ var fetchPlaceholder = function () {
         });
 };
 
-// Clear Function ____________________________________
-var clearPlaceholder = function () {
-    console.log("Removing...");
-    $("placeholder").remove();
+// Clear Functions ____________________________________
+var clearAllArtistInfo = function () {
+    console.log("Removing All Artist Info...");
+    $("section").children().remove();
+};
+
+var clearSearchHistory = function () {
+    console.log("Hiding Search History...");
+    $("#container-search-history").children().remove();
 };
 
 // ###########################################################
 // ###########################################################
 
-// $("placeholder").on("click", generatePlaceholder);
+var artistName = "50 Cent";
+var lyrics = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt inculpa qui officia deserunt mollit anim id est laborum.";
+
+var songTitle = "This is a Test!";
+
+$("#btn-search-artist").on("click", function (event) {
+    event.preventDefault();
+    console.log(event.target);
+    clearAllArtistInfo();
+    createLyricsSearch(artistName);
+});
+
+$("#btn-show-search-history").on("click", function (event) {
+    event.preventDefault();
+    console.log(event.target);
+    var text = $("#btn-show-search-history").text();
+    console.log(text);
+    if (text == "Show Search History") {
+        loadSearchHistory();
+        $("#btn-show-search-history").text("Hide Search History")
+    } else {
+        $("#container-search-history").children().remove();
+        $("#btn-show-search-history").text("Show Search History")
+    }
+});
+
+$("section").on("click","#btn-search-lyrics", function (event) {
+    event.preventDefault();
+    console.log(event.target);
+    createLyricsDisplay(songTitle, lyrics);
+});
 // $("placeholder").on("click", "placeholder", generatePlaceholder);
-loadSearchHistory();
