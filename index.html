@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap">
+    <!-- Tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/output.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <!-- Style links ends -->
     <title>Music Guru</title>
@@ -16,48 +19,48 @@
 
 <body class="w-screen text-center">
     <!--Header -->
-    <header class='bg-orange-300 box-border'>
+    <header class='box-border py-10' id="top">
         <h1 class="text-4xl  font-sans">
             Music Guru
         </h1>
         <h1>
-            &copy;Music Guru Team 2022
+            &copy; Music Guru Team 2022
         </h1>
     </header>
 
     <!-- Section that holds all the Artist Info -->
     <section>
         <!-- Artist Name Section -->
-        <div class="text-3xl my-10" id="container-artist-name">
+        <!-- <div class="text-3xl my-10" id="container-artist-name">
             <h1 class="artist-name" id="container-artist-name-fetched">
                 Artist Name
             </h1>
-        </div>
+        </div> -->
 
         <!-- Genre Section -->
-        <div class="my-2" id="container-genre">
+        <!-- <div class="my-2" id="container-genre">
             <div class="rounded-lg grow">
                 <h2 class="title-section">Genre</h2>
                 <ul class="container-genre break-all" id="container-genre-fetched"></ul>
             </div>
-        </div>
+        </div> -->
 
 
         <!-- Images Section -->
-        <div class="grid gap-4 grid-cols-6 flex my-2 mx-20" id="container-images">
-            <img class="image rounded-lg col-span-2" src="" alt="Image">
-            <img class="image rounded-lg col-span-2" src="" alt="Image">
-            <img class="image rounded-lg col-span-2" src="" alt="Image">
-        </div>
+        <!-- <div class="grid gap-4 grid-cols-6 wrap my-2 mx-20" id="container-images">
+            <img class="image rounded-lg col-span-6 md:col-span-2" src="" alt="Image">
+            <img class="image rounded-lg col-span-6 md:col-span-2" src="" alt="Image">
+            <img class="image rounded-lg col-span-6 md:col-span-2" src="" alt="Image">
+        </div> -->
 
         <!-- Link Section -->
-        <div class="my-2" id="container-link">
+        <!-- <div class="my-2" id="container-link">
             <button class="btn title-section" id="container-link-fetched" type="submit">Artist's Main Site Link</button>
-        </div>
+        </div> -->
 
         <!-- Lyrics Search Section -->
-        <div class="my-2" id="container-lyrics">
-            <form>
+        <!-- <div class="my-2" id="container-lyrics"> -->
+            <!-- <form>
                 <h2 class="title-section">
                     Find Their Song Lyrics
                 </h2>
@@ -65,10 +68,10 @@
                     <input type="text" name="search-lyrics" placeholder="Enter Song Name Here" />
                     <button class="btn" id="btn-search-lyrics" type="submit">Search</button>
                 </div>
-            </form>
+            </form> -->
 
             <!-- Display for the song lyrics -->
-            <div class="my-2">
+            <!-- <div class="my-2">
                 <h2 class="title-song" id="container-lyrics-song-title-fetched">
                     Song Name
                 </h2>
@@ -79,31 +82,29 @@
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-            </div>
-
-        </div>
+            </div> -->
+        <!-- </div> -->
 
 
     </section>
 
     <!-- Footer Section | For search and copy right -->
-    <footer class="footer">
-        <h2 class="title-section">Find your musicians</h2>
-        <form>
-            <div class=>
-                <input type="text" name="search-artist" placeholder="Enter Artist Name Here" />
-                <button class="btn" id="btn-search-artist" type="submit">Search</button>
+    <footer class="footer rounded-lg md:mx-48 md:my-5 p-4">
+        <h2 class="text-2xl pb-2">Find Your Musician</h2>
+        <form class="flex flex-col">
+            <div class="w-full grid gap-4 grid-cols-6 mb-5">
+                <input type="text" class="col-span-4" name="search-artist" placeholder="Enter Artist Name Here" />
+                <button class="btn col-span-2" id="btn-search-artist" type="submit">Search</button>
             </div>
-            <button class="btn" id="btn-back-to-top" type="submit">Back To Top</button>
-            <button class="btn" id="btn-show-search-history" type="submit">Show Search History</button>
+            <a class="btn" href="#top">Back To Top</a>
+            <button class="bg-[#7b2524] btn" id="btn-show-search-history" type="submit">Show Search History</button>
             <!-- Container for search history buttons -->
-            <ul class="container-search-history" id="search-musician-history">
-            </ul>
+            <div class="container-search-history" id="container-search-history">
+            </div>
         </form>
     </footer>
 
-    <!-- Tailwindcss -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- JS for all dynamic HTML and design code -->
