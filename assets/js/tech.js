@@ -4,16 +4,16 @@ console.log("tech.js ran");
 var placeholder = "";
 var apiURL = "";
 
-// var art = document.getElementsByName("search-musician");
-var artist = "coldplay";
+// var artist = "coldplay";
 // These could be hard coded since they don't change, execpt for artist
-var lastFMapiBase = "http://ws.audioscrobbler.com/2.0/";
-var lastFMapiKey = "62f327ad180cacdfe336a5096e041eb9";
-var lastFMapiCall = lastFMapiBase + "?method=artist.getinfo&artist=" + artist + "&api_key=" + lastFMapiKey + "&format=json";
 
 // get genre and url and image
 // need to pass artist name, currently hardcoded
-function getArtistInfo() {
+function getArtistInfo(artistName) {
+    var lastFMapiBase = "http://ws.audioscrobbler.com/2.0/";
+    var lastFMapiKey = "62f327ad180cacdfe336a5096e041eb9";
+    var lastFMapiCall = lastFMapiBase + "?method=artist.getinfo&artist=" + artistName + "&api_key=" + lastFMapiKey + "&format=json";
+    
     fetch(lastFMapiCall).then(function (response) {
         response.json().then(function (data) {
             console.log(data);
@@ -23,7 +23,7 @@ function getArtistInfo() {
             localStorage.setItem("image", JSON.stringify(data.artist.image[1]["#text"]));
             var genreArray = [];
             for (var i = 0; i < data.artist.tags.tag.length; i++) {
-                console.log(data.artist.tags.tag[i].name);
+                // console.log(data.artist.tags.tag[i].name);
                 genreArray[i] = data.artist.tags.tag[i].name;
             }
         });
@@ -32,72 +32,26 @@ function getArtistInfo() {
 
 // Lyrics
 // https://lyricsovh.docs.apiary.io/
-// The only issue I've found with this is that it can be slow
 
-var getSongLyrics = function () {
+var getSongLyrics = function (artistName,song) {
     var lyricBase = "https://api.lyrics.ovh/v1/";
-    var artist = "coldplay";  //get from form input
-    var song = "yellow";  //get from form input
-    var lyricRequest = lyricBase + artist + "/" + song;
+    // var artist = "coldplay";  //get from form input
+    // var song = "yellow";  //get from form input
+    var lyricRequest = lyricBase + artistName + "/" + song;
 
     fetch(lyricRequest).then(function (response) {
         response.json().then(function (data) {
-            console.log(data);
+            // console.log(data);
             console.log(response.status);
             if (response.status != 200) {
-                document.getElementById("lyrics").innerHTML = ("Song not found");
+                var lyrics = "Song not Found";
             }
             else {
-                var songLyrics = data.lyrics.split('\n').join('<br />');
-                // document.getElementById("lyrics").innerHTML = songLyrics;
+                var lyrics = data.lyrics.split('\n').join('<br />');
             }
         })
     });
 };
-
-getArtistInfo(lastFMapiCall);
-getSongLyrics();
-
-var artist = "cher";
-// var getLabel = function() {
-var getArtist = "https://musicbrainz.org/ws/2/artist/?query=" + artist + "&fmt=json";
-// var getLabel = "https://musicbrainz.org/ws/2/label/" + data.artists[0].id + "?inc=aliases";
-var mb = function (info) {
-    fetch(info).then(function (response) {
-        response.json().then(function (data) {
-            console.log("MB function", data.artists[0].id);
-            console.log(data);
-            localStorage.setItem("mbid", data.artists[0].id);
-        });
-    });
-};
-
-mb(getArtist);
-
-// var mbid = localStorage.getItem("mbid");
-// var getUrl = "https://musicbrainz.org/ws/2/url/" + mbid + "?fmt=json"
-// var getGenre = "https://musicbrainz.org/ws/2/genre/" + mbid + "?fmt=json";
-
-//does not work
-// var mb2 = function (){
-// console.log("mb2",typeof(mbid)),mbid;
-//     fetch(getGenre).then(function(response) {
-//     response.json().then(function(data) {
-//         console.log(data);
-//     });
-//     });
-// };
-
-// mb2();
-// var postGenre = function () {
-//     console.log("What kind of music IS this?");
-//     document.getElementById("#genre-list").appendChild(genre);
-// };
-
-// postGenre();
-// createArtistFormEl();
-
-
 
 // ###########################################################
 // ###########################################################
@@ -171,16 +125,19 @@ var clearSearchHistory = function () {
 // ###########################################################
 // ###########################################################
 
-var artistName = "50 Cent";
-var lyrics = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt inculpa qui officia deserunt mollit anim id est laborum.";
+// var artistName = "50 Cent";
+// var lyrics = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut laboreet dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt inculpa qui officia deserunt mollit anim id est laborum.";
 
-var songTitle = "This is a Test!";
+// var songTitle = "This is a Test!";
 
 $("#btn-search-artist").on("click", function (event) {
     event.preventDefault();
     console.log(event.target);
-    clearAllArtistInfo();
-    createLyricsSearch(artistName);
+    var artistName = $("input[name='search-artist']").val();
+    console.log(artistName);
+    // clearAllArtistInfo();
+    createLyricsSearch();
+    getArtistInfo(artistName);
 });
 
 $("#btn-show-search-history").on("click", function (event) {
@@ -200,6 +157,9 @@ $("#btn-show-search-history").on("click", function (event) {
 $("section").on("click","#btn-search-lyrics", function (event) {
     event.preventDefault();
     console.log(event.target);
-    createLyricsDisplay(songTitle, lyrics);
+    var song = $("input[name='search-lyrics']").val();
+    console.log(song);
+    getSongLyrics(artistName,song);
+    createLyricsDisplay(song, lyrics);
 });
 // $("placeholder").on("click", "placeholder", generatePlaceholder);
