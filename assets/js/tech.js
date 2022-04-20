@@ -59,6 +59,16 @@ function getSongLyrics() {
 getArtistInfo(lastFMapiCall);
 getSongLyrics();
 
+// var postGenre = function () {
+//     console.log("What kind of music IS this?");
+//     document.getElementById("#genre-list").appendChild(genre);
+// };
+
+// postGenre();
+createArtistFormEl();
+
+
+
 // ###########################################################
 // ###########################################################
 

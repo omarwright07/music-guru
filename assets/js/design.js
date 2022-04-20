@@ -17,12 +17,25 @@ var formHandler = function (event) {
 // All Forms Creation Functions | controls HTML generate process ____________________________________
 var createArtistFormEl = function () {
   // Below is just piece to create all the html elements
-  placeholderEl = $("<html tag placeholder>")
-    .attr("id", "placeholder")
-    .addClass("placeholder")
-    .text("placeholder");
-  placeholderEl.append(placeholderEl);
-  $("#forecast").append(todaySectionEl);
+  var genreText = document.createElement("p");
+    console.log("Genre at least tried to post...");  
+    genreText.innerText = genre;
+
+  document.getElementById("container-genre-fetched").appendChild(genreText);
+
+  var artistImages = document.createElement("IMG");
+    console.log("Can you see me?");
+    artistImages.setAttribute("src", image);
+    artistImages.setAttribute("height", "600");
+    artistImages.setAttribute("width", "600");
+    artistImages.setAttribute("alt", "your favorite artist");
+    document.getElementById("container-images").append(artistImages);
+
+
+  
+
+
+
 }
 
 // ###########################################################

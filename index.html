@@ -42,23 +42,23 @@
         <div>
         <!-- Artist Names and Genres 3 Boxes on mockup -->
             <div class="grid-cols-3 flex">
-                <div class="box-border h-96 w-72 bg-red-800"> 
+                <div class="box-border h-96 w-72 bg-red-800" id = "container-images"> 
                     <h2 class="genre-title">Genre</h2>
-                    <ul class="genre-list" id="genres-found"></ul>
+                    <ul class="genre-list" id="genre-item"></ul>
                 </div>
                 <div class="box-border h-96 w-72 bg-blue-800">
-                    <h2 class="genre-title">Genre</h2>
-                    <ul class="genre-list" id="genres-found"></ul>
+                    <h2 class="genre-title">Record Label</h2>
+                    <ul class="genre-list" id="labels-item"></ul>
                 </div>
                 <div class="box-border h-96 w-72 bg-green-100 ">
-                    <h2 class="genre-title">Genre</h2>
-                    <ul class="genre-list" id="genres-found"></ul>
+                    <h2 class="genre-title">Lyrics</h2>
+                    <ul class="genre-list" id="lyrics-item"></ul>
                 </div>
             </div>
             
-            <div>
+            <div> 
                 <!--Genres or whatever catagories undernear 3 artist boxes-->
-                <section class="task-list-wrapper">
+                <section class="task-list-wrapper" id = "container-genre-fetched">
                     <h2 class="list-title">Genre</h2>
                     <ul class="task-list" id="genres-found"></ul>
                 </section>
@@ -74,8 +74,8 @@
                 </section>
                 <!--edit to match rest of list-->
                 <section class="task-list-wrapper">
-                    <h2 class="list-title">Genre</h2>
-                    <ul class="task-list" id="genres-found"></ul>
+                    <h2 class="list-title">Lyrics</h2>
+                    <ul class="task-list" id="lyrics-found"></ul>
                 </section>
                         <p>Find your musicians</p>
                         <form id="task-form">
