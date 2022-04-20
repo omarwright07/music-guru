@@ -57,8 +57,19 @@ header {
 }
 
 .image {
-  height: 300px;
+  min-height: 300px;
+  width: auto;
   background-color: var(--senary-color);
+}
+
+.genre {
+  margin: 3px;
+  padding: 10px 15px;
+  background: var(--quinary-color);
+  color: var(--tertiary-color);
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 3px var(--tertiary-color);
 }
 
 /* .container-genre {
@@ -81,14 +92,9 @@ footer {
   color: var(--senary-color);
 }
 
-input {
-  padding: 10px;
-  border-radius: 4px;
-}
-
 /* Button Styling */
 button{
-  background: var(--primary-color);
+  background: var(--primary-color) !important;
 }
 
 .btn {
