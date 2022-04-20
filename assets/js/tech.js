@@ -89,6 +89,15 @@ mb(getArtist);
 // };
 
 // mb2();
+// var postGenre = function () {
+//     console.log("What kind of music IS this?");
+//     document.getElementById("#genre-list").appendChild(genre);
+// };
+
+// postGenre();
+// createArtistFormEl();
+
+
 
 // ###########################################################
 // ###########################################################
