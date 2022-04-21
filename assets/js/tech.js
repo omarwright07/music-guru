@@ -12,7 +12,7 @@ var songLyrics = "";
 // Generate Function ____________________________________
 function getArtistInfo() {
     console.log("Generating All Artist Info...")
-    var lastFMapiBase = "http://ws.audioscrobbler.com/2.0/";
+    var lastFMapiBase = "https://ws.audioscrobbler.com/2.0/";
     var lastFMapiKey = "62f327ad180cacdfe336a5096e041eb9";
     var lastFMapiCall = lastFMapiBase + "?method=artist.getinfo&artist=" + artistName + "&api_key=" + lastFMapiKey + "&format=json";
 
