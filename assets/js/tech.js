@@ -172,7 +172,8 @@ $("section").on("click", "#btn-search-lyrics", function (event) {
 });
 
 // Main Site Button
-$("section").on("click", "#btn-search-lyrics", function (event) {
+$("section").on("click", "#container-link", function (event) {
     event.preventDefault();
-
+    console.log("artist URL",artistURL);
+    window.open(artistURL, "_blank");
 });

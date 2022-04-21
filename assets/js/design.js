@@ -18,7 +18,7 @@ var createSearchHistoryBTN = function (artistName) {
 var formHandler = function () {
   console.log("Creating Form...")
   createArtistNameGenreForm();
-  createArtistImageForm();
+  // createArtistImageForm();
   createArtistLinkForm();
   createLyricsSearch();
 };
@@ -50,7 +50,7 @@ var createArtistNameGenreForm = function () {
 
   var artistGenreListEl = $("<div>")
     .attr("id", "container-genre-fetched")
-    .addClass("container-genre flex justify-center flex-row flew-wrap mx-3");
+    .addClass("container-genre flex justify-center flex-col flew-wrap mx-3 md:mx-48");
 
   for (i = 0; i < artistGenre.length; i++) {
     console.log("genre item " + i);
@@ -92,7 +92,7 @@ var createArtistLinkForm = function () {
   var artistLinkTitleEl = $("<button>")
     .attr("id", "container-link")
     .addClass("btn title-section")
-    .text(artistName + "'s Main Site");
+    .text(artistName + "'s last.fm Site");
 
   artistLinkContainerEl.append(artistLinkTitleEl);
   $("section").append(artistLinkContainerEl);
@@ -143,12 +143,12 @@ var createLyricsDisplay = function (songTitle, songLyrics) {
 
   var lyricsSongTitleEl = $("<h2>")
     .attr("id", "container-lyrics-song-title-fetched")
-    .addClass("title-song")
+    .addClass("title-song mx-20 md:mx-60 p-4")
     .text(songTitle);
 
   var lyricsSongLyricsEl = $("<p>")
     .attr("id", "container-lyrics-fetched")
-    .addClass("text-justify mx-20 md:mx-60")
+    .addClass("song-lyrics text-justify mx-20 px-10 py-5 md:mx-60")
     .html(songLyrics);
 
   lyricsContainerEl.append(lyricsSongTitleEl, lyricsSongLyricsEl);

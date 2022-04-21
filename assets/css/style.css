@@ -51,9 +51,19 @@ header {
 }
 
 .title-song {
-  color: var(--primary-color);
+  color: var(--quinary-color);
   font-size: var(--font-size-md);
   font-weight: bold;
+  background: var(--primary-color);
+  border-radius: 12px;
+  box-shadow: 0 3px var(--tertiary-color);
+}
+.song-lyrics {
+  color: var(--senary-color);
+  font-weight: bold;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px var(--tertiary-color);
 }
 
 .image {
