@@ -4,7 +4,7 @@
 
 # Our Features:
 ## User Story:
-* AS AN music lover who's always on the go
+* AS A music lover who's always on the go
 * I WANT search up the my favorite musicians
 * SO THAT I can stay up-to-date on their information
 
@@ -43,7 +43,7 @@
 * Be responsive.
 * Have a polished UI.
 
-## Screenshoot
+## Screenshot
 <!-- ![Final mock up of Music Guru](./assets/images/) -->
 
 ## Deployed Application
