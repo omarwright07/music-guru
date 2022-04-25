@@ -44,7 +44,7 @@
 * Have a polished UI.
 
 ## Screenshot
-<!-- ![Final mock up of Music Guru](./assets/images/) -->
+![Final mock up of Music Guru](./assets/images/01-web-app-screenshot.png)
 
 ## Deployed Application
 https://omarwright07.github.io/music-guru/
