@@ -19,6 +19,10 @@ function getArtistInfo() {
     fetch(lastFMapiCall).then(function (response) {
         response.json().then(function (data) {
             console.log(data);
+            if (data.message){
+                createArtistErrorForm("Artist Not Found");
+                return;
+            }
             artistName = data.artist.name;
             artistURL = data.artist.url;
             // 6 images are available rangin from small (0) to mega (5) I've selected medium (1)

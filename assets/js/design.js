@@ -17,7 +17,8 @@ var createSearchHistoryBTN = function (artistName) {
 // Form Handler Function | controls the order of forms created ____________________________________
 var formHandler = function () {
   console.log("Creating Form...")
-  createArtistNameGenreForm();
+  createArtistNameForm();
+  createArtistGenreForm();
   // createArtistImageForm();
   createArtistLinkForm();
   createLyricsSearch();
@@ -25,7 +26,21 @@ var formHandler = function () {
 
 // All Forms Creation Functions | controls HTML generation process ____________________________________
 // Artist Name and Genre
-var createArtistNameGenreForm = function () {
+var createArtistErrorForm = function (message) {
+  // Everything for Artist Name
+  var artistNameContainerEl = $("<div>")
+    .attr("id", "container-artist-name")
+    .addClass("text-3xl mt-10 mb-5");
+
+  var artistNameTitleEl = $("<h2>")
+    .addClass("artist-name")
+    .text(message);
+
+  artistNameContainerEl.append(artistNameTitleEl);
+  $("section").append(artistNameContainerEl);
+}
+
+var createArtistNameForm = function () {
   // Everything for Artist Name
   var artistNameContainerEl = $("<div>")
     .attr("id", "container-artist-name")
@@ -37,6 +52,9 @@ var createArtistNameGenreForm = function () {
 
   artistNameContainerEl.append(artistNameTitleEl);
   $("section").append(artistNameContainerEl);
+}
+
+var createArtistGenreForm = function () {
 
   console.log("Creating Genre...")
   // Everything for Artist's Genres
