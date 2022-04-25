@@ -106,7 +106,8 @@ var createLyricsSearch = function () {
     .addClass("my-2");
 
   var lyricsFormEl = $("<form>")
-    .addClass("rounded-lg form md:mx-48");
+    .addClass("rounded-lg form md:mx-48")
+    .attr("id", "lyrics-form");
 
   var lyricsFormTitleEl = $("<h2>")
     .addClass("title-section")
