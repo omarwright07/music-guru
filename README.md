@@ -51,4 +51,3 @@ https://omarwright07.github.io/music-guru/
 
 ## GitHub Location
 https://github.com/omarwright07/music-guru
-Test by bagl0025
